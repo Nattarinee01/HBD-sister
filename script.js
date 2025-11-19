@@ -70,7 +70,7 @@ function showAllWishes() {
     let wishes = JSON.parse(localStorage.getItem("wishes") || "[]");
 
     if (wishes.length === 0) {
-        allWishesDiv.textContent = "ยังไม่มีข้อความ 😊";
+        allWishesDiv.textContent = "no wish";
         return;
     }
 
