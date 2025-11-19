@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Itim', serif;
     background: #f7f3ef;
     color: #333;
 }
@@ -49,4 +49,46 @@ button:hover {
 
 .menu-btn:hover {
     background: #e9d7d1;
+}
+
+/* Fade-in effect for card */
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Shake effect for wrong password */
+.shake {
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+/* Smooth message fade-in */
+.fade-msg {
+    animation: msgFade 0.4s ease;
+}
+
+@keyframes msgFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+img.baby{
+    width: 100%;
+    height: 270px;  
+    object-fit: cover;  
+    border-radius: 5px;
+    border: 3px solid white;
 }
