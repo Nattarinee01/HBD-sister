@@ -7,7 +7,7 @@ function checkPassword() {
     const correct = "happy2025";
     const msg = document.getElementById("message");
 
-    if (!input || !msg) return; // ถ้าอยู่หน้าอื่นจะไม่ทำงาน
+    if (!input || !msg) return;
 
     if (value === correct) {
         window.location.href = "menu.html";
@@ -36,7 +36,7 @@ function sendWish() {
     const wishInput = document.getElementById("wish");
     const status = document.getElementById("status");
 
-    if (!wishInput || !status) return; // ถ้าอยู่หน้าอื่นจะไม่ทำงาน
+    if (!wishInput || !status) return;
 
     const wish = wishInput.value;
     if (wish.trim() === "") {
@@ -44,7 +44,8 @@ function sendWish() {
         return;
     }
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbw3FFKqaBjhK5NcxY6_vkVrnI071WKvrSYrVqJrtBEZ7oxQKKZ36J49gHp8LNU8gK67/exec"; // เปลี่ยนเป็น URL ของคุณ
+    // URL Web App ของคุณ
+    const scriptURL = "https://script.google.com/macros/s/AKfycbw3FFKqaBjhK5NcxY6_vkVrnI071WKvrSYrVqJrtBEZ7oxQKKZ36J49gHp8LNU8gK67/exec";
 
     fetch(scriptURL, {
         method: "POST",
