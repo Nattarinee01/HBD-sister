@@ -1,4 +1,4 @@
-// สำหรับหน้า Password
+// ------------------------ Password Page ------------------------
 let wrongCount = 0;
 
 function checkPassword() {
@@ -6,6 +6,8 @@ function checkPassword() {
     const value = input.value;
     const correct = "happy2025";
     const msg = document.getElementById("message");
+
+    if (!input || !msg) return; // ถ้าอยู่หน้าอื่นจะไม่ทำงาน
 
     if (value === correct) {
         window.location.href = "menu.html";
@@ -29,39 +31,45 @@ function checkPassword() {
     }
 }
 
-// สำหรับหน้า Wish / ข้อพรปีหน้า
+// ------------------------ Wish Page ------------------------
 function sendWish() {
-    const wish = document.getElementById("wish").value;
+    const wishInput = document.getElementById("wish");
     const status = document.getElementById("status");
 
+    if (!wishInput || !status) return; // ถ้าอยู่หน้าอื่นจะไม่ทำงาน
+
+    const wish = wishInput.value;
     if (wish.trim() === "") {
         status.textContent = "Please write something first.";
         return;
     }
 
-    fetch("https://script.google.com/macros/s/AKfycbwMT3knBNQgkX767AosOc98basZzMx1Ehnp8fe5LDC1knnW09-Sn-LqqohaWT-hoXAI/exec", {
+    const scriptURL = "https://script.google.com/macros/s/AKfycbw3FFKqaBjhK5NcxY6_vkVrnI071WKvrSYrVqJrtBEZ7oxQKKZ36J49gHp8LNU8gK67/exec"; // เปลี่ยนเป็น URL ของคุณ
+
+    fetch(scriptURL, {
         method: "POST",
-        body: JSON.stringify({ wish: wish }),
-        headers: {
-            "Content-Type": "application/json"
-        }
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ wish: wish })
     })
     .then(res => res.json())
     .then(data => {
         if (data.status === "success") {
             status.textContent = "Wish sent successfully! 💛";
+            wishInput.value = "";
         }
     })
     .catch(err => {
         status.textContent = "Error sending wish.";
+        console.log(err);
     });
 }
 
-// สำหรับหน้า Gift
+// ------------------------ Gift Page ------------------------
 function revealGift() {
-    document.getElementById("gift-box").style.display = "none";
-    document.getElementById("gift-reveal").style.display = "block";
+    const box = document.getElementById("gift-box");
+    const reveal = document.getElementById("gift-reveal");
+    if (!box || !reveal) return;
+
+    box.style.display = "none";
+    reveal.style.display = "block";
 }
-
-
-
