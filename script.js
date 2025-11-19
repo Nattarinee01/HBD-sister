@@ -4,7 +4,7 @@ let wrongCount = 0;
 function checkPassword() {
     const input = document.getElementById("password");
     const value = input.value;
-    const correct = "happy2025";
+    const correct = "221146";
     const msg = document.getElementById("message");
 
     if (!input || !msg) return;
@@ -38,31 +38,21 @@ function sendWish() {
 
     if (!wishInput || !status) return;
 
-    const wish = wishInput.value;
-    if (wish.trim() === "") {
-        status.textContent = "Please write something first.";
+    const wish = wishInput.value.trim();
+    if (!wish) {
+        status.textContent = "Please write something!";
         return;
     }
 
-    // URL Web App ของคุณ
-    const scriptURL = "https://script.google.com/macros/s/AKfycbw3FFKqaBjhK5NcxY6_vkVrnI071WKvrSYrVqJrtBEZ7oxQKKZ36J49gHp8LNU8gK67/exec";
+    // อ่านค่าเก่าจาก localStorage
+    let wishes = JSON.parse(localStorage.getItem("wishes") || "[]");
+    wishes.push(wish);
+    localStorage.setItem("wishes", JSON.stringify(wishes));
 
-    fetch(scriptURL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ wish: wish })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.status === "success") {
-            status.textContent = "Wish sent successfully! 💛";
-            wishInput.value = "";
-        }
-    })
-    .catch(err => {
-        status.textContent = "Error sending wish.";
-        console.log(err);
-    });
+    status.textContent = "Wish saved locally! 💛";
+    wishInput.value = "";
+
+    console.log(wishes); // ดูได้ใน DevTools (Console)
 }
 
 // ------------------------ Gift Page ------------------------
