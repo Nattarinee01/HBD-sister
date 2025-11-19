@@ -39,7 +39,7 @@ function sendWish() {
         return;
     }
 
-    fetch("https://script.google.com/macros/s/AKfycbwCJpiNYofyeoUMKutZSVcjvsREbGqSfV-c9CVB8Z6OM2QX33kJe6shjNLIJgFBJaL-/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbwMT3knBNQgkX767AosOc98basZzMx1Ehnp8fe5LDC1knnW09-Sn-LqqohaWT-hoXAI/exec", {
         method: "POST",
         body: JSON.stringify({ wish: wish }),
         headers: {
