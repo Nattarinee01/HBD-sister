@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Next Year Wishes</title>
+    <title>Next Year Wish</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <div class="card">
-            <h2>For Next Year 🌿</h2>
-            <p>
-                May next year bring you new energy,  
-                new chances, peaceful days,  
-                and the courage to follow your dreams.
-            </p>
-
-            <a href="menu.html" class="menu-btn">Back to Menu</a>
-        </div>
+<div class="container">
+    <div class="card fade-in">
+        <h2>Write Your Wish ✨</h2>
+        <textarea id="wish" placeholder="Write your wish here..." 
+            style="width: 80%; height: 150px; padding: 12px; border-radius: 12px; border: 1px solid #ccc;"></textarea>
+        <p id="status" style="color:#6b4e4e; font-size:14px; margin-top:10px;"></p>
+        <button onclick="sendWish()">Send</button>
+        <a href="menu.html" class="menu-btn">Back to Menu</a>
     </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
