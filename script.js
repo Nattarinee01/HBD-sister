@@ -64,3 +64,24 @@ function revealGift() {
     box.style.display = "none";
     reveal.style.display = "block";
 }
+
+function showAllWishes() {
+    const allWishesDiv = document.getElementById("all-wishes");
+    let wishes = JSON.parse(localStorage.getItem("wishes") || "[]");
+
+    if (wishes.length === 0) {
+        allWishesDiv.textContent = "ยังไม่มีข้อความ 😊";
+        return;
+    }
+
+    // แสดงแต่ละ wish เป็นรายการ
+    allWishesDiv.innerHTML = wishes.map((w, i) => `${i+1}. ${w}`).join("<br>");
+}
+
+function clearAllWishes() {
+    localStorage.removeItem("wishes"); // ลบ key "wishes"
+    const allWishesDiv = document.getElementById("all-wishes");
+    if (allWishesDiv) allWishesDiv.textContent = "";
+    alert("ลบข้อความทั้งหมดเรียบร้อยแล้ว 💛");
+}
+
